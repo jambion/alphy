@@ -1,0 +1,15 @@
+<h1>User: <%= @user.username %></h1>
+<ul>
+  <li>Email: <%= @user.email %></li>
+  <li>User ID: <%= @user.id %> </li>
+</ul>
+
+<% if @user.articles.present? %>
+  Articles:
+  <ul>
+    <% @user.articles.each do |article| %>
+      <li><%= link_to article.title, article_path(article) %></li> 
+    <% end %>
+  </ul>
+<% end %>
+<%= link_to "Back to Users", users_path %>
